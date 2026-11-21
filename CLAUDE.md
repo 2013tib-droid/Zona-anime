@@ -44,6 +44,7 @@ Fokus utama: **GAMBAR** (carousel PNG 4:5) bergaya komik/anime dengan karakter c
 Objek karakter dipakai di `comic.panels[].chars[]`, `meme`, `mascot`, `lineup.chars[]`, dan prop `chara`:
 `{ "char": "bima", "expr": "kaget", "pose": "panik", "item": "hp", "fx": ["keringat"], "flip": false, "shot": "bust", "x": 50, "scale": 1 }`
 - **char** (pemeran): `rina` (cewek rambut panjang, kaos oranye) · `bima` (cowok, hoodie hijau) · `sari` (cewek berhijab, kemeja, rok) · `ayu` (cewek bob, seragam pelaut) · `dodi` (bapak-bapak, jas, kacamata, kumis) · `koko` (maskot koin emas)
+- **Calon maskot brand (super-chibi gemes)**: `zuzu` (kucing pembawa rezeki, kalung koin Z) · `cimo` (celengan ayam, motif bunga) · `zona` (Zona-chan, anak hoodie telinga kucing, ahoge Z). Bisa recolor via `cast` (mis. `{"base":"kucing","patch":"#888","eyes":"#39f"}`; kunci warna: skin body paw patch patch2 comb eyes accent gold hairColor).
 - **expr**: netral senang tertawa kaget sedih nangis marah bingung mikir malu bangga panik berbinar lelah datar (efek otomatis: kaget→!, marah→urat, bingung→?, panik→keringat, berbinar→kilau, lelah→suram)
 - **pose**: diri tunjuk sorak pikir panik lambai jelasin pegang silang tepokjidat
 - **item** (hanya pose `pegang`): koin hp uang dompet buku · atau nama ikon/emoji

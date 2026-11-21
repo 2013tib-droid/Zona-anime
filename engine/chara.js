@@ -3,6 +3,7 @@
 // Bisa diganti gambar sendiri: di file konten, "cast": { "rina": { "img": "assets/chara/rina/{expr}.png" } }
 import { s } from './core.js';
 import { ICONS } from './icons.js';
+import { drawMaskot, SPECIES } from './maskot.js';
 
 const OUT = '#2B2233'; // warna garis luar (lineart)
 
@@ -14,6 +15,10 @@ export const CAST = {
   ayu: { name: 'Ayu', hair: 'bob', hairColor: '#1F1B2E', eyes: '#E2475B', skin: '#FFE6D8', outfit: 'seragam', outfitColor: '#2E3F7F', bottom: '#2E3F7F', rok: true },
   dodi: { name: 'Pak Dodi', hair: 'tipis', hairColor: '#9A98A8', eyes: '#5B4636', skin: '#E8BE9C', outfit: 'jas', outfitColor: '#2F3E66', tie: '#D9483B', bottom: '#2F3E66', acc: ['kacamata', 'kumis'] },
   koko: { name: 'Koko', base: 'koin', eyes: '#3A2A10' },
+  // --- konsep maskot brand (super-chibi gemes) ---
+  zuzu: { name: 'Zuzu', base: 'kucing' },
+  cimo: { name: 'Cimo', base: 'ayam' },
+  zona: { name: 'Zona-chan', base: 'anak' },
 };
 const DEFAULT = { hair: 'pendek', hairColor: '#2A2C3D', eyes: '#6B4CD6', skin: '#FFE0CC', outfit: 'kaos', outfitColor: '#5B8CFF', bottom: '#34405E', tie: '#D9483B', acc: [] };
 
@@ -159,11 +164,11 @@ function eye(g, cx, cy, side, kind, c, look = [0, 0]) {
     case 'bintang': normal(true); break;
     case 'marah':
       normal();
-      g.append(s('path', { d: `M${cx + side * 46},${cy - 64} L${cx - side * 46},${cy - 64} L${cx - side * 40},${cy + 4} L${cx + side * 42},${cy - 20}Z`, fill: skin }));
+      g.append(s('path', { d: `M${cx + side * 44},${cy - 48} L${cx - side * 38},${cy - 48} L${cx - side * 38},${cy + 4} L${cx + side * 42},${cy - 20}Z`, fill: skin }));
       g.append(line(`M${cx + side * 40},${cy - 20} L${cx - side * 36},${cy + 3}`, OUT, 9)); break;
     case 'sayu':
       normal();
-      g.append(s('path', { d: `M${cx - 46},${cy - 64} L${cx + 46},${cy - 64} L${cx + 44},${cy} L${cx - 44},${cy}Z`, fill: skin }));
+      g.append(s('path', { d: `M${cx - 40},${cy - 46} L${cx + 40},${cy - 46} L${cx + 40},${cy} L${cx - 40},${cy}Z`, fill: skin }));
       g.append(line(`M${cx - side * 30},${cy} Q${cx},${cy - 6} ${cx + side * 36},${cy - 2}`, OUT, 9)); break;
     default: normal();
   }
@@ -180,6 +185,7 @@ const MOUTH = {
   gigi: () => [P('M168,282 L232,282 Q232,306 200,306 Q168,306 168,282Z', '#fff'), line('M168,294 L232,294', OUT, 4)],
   datar: () => line('M184,294 L216,294', OUT, 6),
   seringai: () => line('M180,290 Q206,300 224,280', OUT, 6),
+  kucing: () => line('M174,286 Q187,302 200,288 Q213,302 226,286', OUT, 6),
 };
 
 function drawFace(c, g, ex) {
@@ -190,6 +196,7 @@ function drawFace(c, g, ex) {
     if (c.hair !== 'hijab' && c.hair !== 'tipis') g.append(s('path', { d: 'M82,168 Q200,240 318,168 L318,110 L82,110Z', fill: skinSh })); // bayangan poni
   }
   g.append(line('M203,256 L198,266', shade(c.base === 'koin' ? '#F6C343' : skin, -0.3), 4));
+  if (!ex.blush) [128, 272].forEach(x => g.append(s('ellipse', { cx: x, cy: 272, rx: 24, ry: 11, fill: '#FF8FA8', opacity: 0.28 }))); // pipi merona tipis = lebih gemes
   if (ex.blush) {
     const o = ex.blush > 1 ? 0.75 : 0.5;
     [128, 272].forEach(x => {
@@ -212,6 +219,42 @@ function drawBrows(c, g, ex) {
     const cx = EYE[k][0];
     g.append(line(`M${cx - side * 24},${by + inn} Q${cx},${by - 10 + (inn + out) / 2} ${cx + side * 30},${by + out}`, col, 8));
   });
+}
+
+// ---------- wajah maskot (mata & alis manusia, diposisikan ulang) ----------
+function drawFeatures(g, F, sp, c, ex) {
+  const { eyes, k, mouth, blush, browDy } = F;
+  // pipi (selalu merona = gemes)
+  const bo = ex.blush > 1 ? 0.8 : ex.blush ? 0.65 : 0.5;
+  [eyes[0][0] - 22, eyes[1][0] + 22].forEach(x => {
+    g.append(s('ellipse', { cx: x, cy: blush, rx: 30, ry: 16, fill: '#FF8FA8', opacity: bo }));
+    if (ex.blush) g.append(line(`M${x - 13},${blush + 5} l6,-10 M${x - 2},${blush + 5} l6,-10 M${x + 9},${blush + 5} l6,-10`, '#E2557A', 3, { opacity: bo }));
+  });
+  // mulut / paruh
+  const m = ex.mouth || 'senyum';
+  const mg = s('g', { transform: `translate(${mouth[0] - 200 * 0.9},${mouth[1] - 292 * 0.9}) scale(0.9)` });
+  if (sp === 'ayam') {
+    const open = ['buka', 'lebar', 'o', 'gigi'].includes(m);
+    g.append(open
+      ? s('g', {}, P(`M176,${mouth[1] - 8} L200,${mouth[1] - 24} L224,${mouth[1] - 8}Z`, '#FF9A2E'), P(`M180,${mouth[1] - 2} L200,${mouth[1] + 22} L220,${mouth[1] - 2}Z`, '#FF9A2E'), s('path', { d: `M182,${mouth[1] - 7} L218,${mouth[1] - 7} L200,${mouth[1] + 6}Z`, fill: '#7A2230' }))
+      : P(`M178,${mouth[1] - 4} L200,${mouth[1] - 18} L222,${mouth[1] - 4} L200,${mouth[1] + 12}Z`, '#FF9A2E'));
+  } else {
+    if (sp === 'kucing') g.append(P(`M190,${mouth[1] - 24} L210,${mouth[1] - 24} L200,${mouth[1] - 14}Z`, '#FF8FA8', { 'stroke-width': 4 }));
+    mg.append(...[].concat(MOUTH[m === 'senyum' ? 'kucing' : m]()));
+    g.append(mg);
+  }
+  // mata + alis per sisi
+  [['L', -1], ['R', 1]].forEach(([key, side], i) => {
+    const [x, y] = eyes[i];
+    const eg = s('g', { transform: `translate(${x},${y}) scale(${k}) translate(${-EYE[key][0]},${-EYE[key][1]})` });
+    eye(eg, ...EYE[key], side, ex.eyes, c, ex.look);
+    const [inn, out] = Array.isArray(ex.brows) ? ex.brows : ex.brows[key];
+    const cx = EYE[key][0], by = 162 + browDy;
+    eg.append(line(`M${cx - side * 22},${by + inn} Q${cx},${by - 8 + (inn + out) / 2} ${cx + side * 26},${by + out}`, shade(c.hairColor || '#5A4A3A', -0.3), 8));
+    if (ex.tears === 'deras') eg.append(P(`M${cx - 12},${250} L${cx + 12},${250} L${cx + 18},${340} Q${cx},${352} ${cx - 18},${340}Z`, '#9ADCFF', { 'stroke-width': 3, opacity: 0.9 }));
+    g.append(eg);
+  });
+  if (ex.tears === 'tetes') g.append(P(`M${eyes[1][0] + 40},${eyes[1][1] + 20} q10,18 6,28 q-6,10 -14,2 q-4,-10 8,-30Z`, '#9ADCFF', { 'stroke-width': 3 }));
 }
 
 // ---------- badan & baju ----------
@@ -345,7 +388,8 @@ export function drawChara(spec = {}, cast = {}) {
   const key = spec.char || 'rina';
   const preset = cast[key] || CAST[key];
   if (!preset) throw new Error(`karakter "${key}" tidak dikenal. Pilihan: ${[...Object.keys(CAST), ...Object.keys(cast)].join(', ')} (atau definisikan di "cast")`);
-  const c = { ...DEFAULT, ...(CAST[key] || {}), ...preset, ...spec };
+  const base = spec.base || preset.base || (CAST[key] || {}).base;
+  const c = { ...DEFAULT, ...(SPECIES[base] || {}), ...(CAST[key] || {}), ...preset, ...spec };
   const exprName = c.expr || 'netral';
   const ex = EXPR[exprName];
   if (!ex) throw new Error(`ekspresi "${exprName}" tidak dikenal. Pilihan: ${Object.keys(EXPR).join(', ')}`);
@@ -359,6 +403,13 @@ export function drawChara(spec = {}, cast = {}) {
     return svg;
   }
   const g = s('g', { transform: c.flip ? 'translate(400,0) scale(-1,1)' : null });
+  if (SPECIES[c.base]) {
+    drawMaskot(c, g, pose, (gg, F, sp) => drawFeatures(gg, F, sp, c, ex), drawItem);
+    svg.append(g);
+    const fx = [...(ex.fx || []), ...[].concat(c.fx || [])].filter((v, i, a) => a.indexOf(v) === i);
+    for (const f of fx) if (FX[f]) svg.append(...[].concat(FX[f]()));
+    return svg;
+  }
   const koin = c.base === 'koin';
   if (koin) {
     drawCoin(g);

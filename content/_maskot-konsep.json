@@ -1,0 +1,18 @@
+{
+  "title": "Konsep maskot Zona Anime",
+  "theme": "sosial",
+  "format": "feed",
+  "series": "Konsep Maskot",
+  "scenes": [
+    { "type": "lineup", "title": "3 calon *maskot* kita", "chars": [
+      { "char": "zuzu", "expr": "senang", "pose": "lambai", "label": "A. Zuzu", "desc": "Kucing pembawa rezeki" },
+      { "char": "cimo", "expr": "berbinar", "pose": "sorak", "label": "B. Cimo", "desc": "Celengan ayam" },
+      { "char": "zona", "expr": "senang", "pose": "jelasin", "label": "C. Zona-chan", "desc": "Anak hoodie kucing" } ] },
+    { "type": "lineup", "title": "A. Zuzu", "chars": [
+      { "char": "zuzu", "expr": "netral", "label": "netral" }, { "char": "zuzu", "expr": "kaget", "pose": "panik", "label": "kaget" }, { "char": "zuzu", "expr": "bangga", "pose": "pegang", "item": "koin", "label": "bangga" } ] },
+    { "type": "lineup", "title": "B. Cimo", "chars": [
+      { "char": "cimo", "expr": "netral", "label": "netral" }, { "char": "cimo", "expr": "nangis", "label": "nangis" }, { "char": "cimo", "expr": "mikir", "pose": "pikir", "label": "mikir" } ] },
+    { "type": "lineup", "title": "C. Zona-chan", "chars": [
+      { "char": "zona", "expr": "netral", "label": "netral" }, { "char": "zona", "expr": "marah", "pose": "silang", "label": "marah" }, { "char": "zona", "expr": "tertawa", "pose": "tunjuk", "label": "tertawa" } ] }
+  ]
+}
