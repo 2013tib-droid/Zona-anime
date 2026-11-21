@@ -22,6 +22,7 @@ export const MPOSE = {
   silang: { L: [250, 452], R: [150, 452] },
   tepokjidat: { L: [128, 476], R: [262, 200, 'buka'] },
 };
+MPOSE.saku = MPOSE.diri; MPOSE.jempol = MPOSE.lambai;
 
 // Spesies: warna & ciri. Semua bisa di-override lewat "cast".
 export const SPECIES = {

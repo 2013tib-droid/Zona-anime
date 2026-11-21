@@ -45,8 +45,9 @@ Objek karakter dipakai di `comic.panels[].chars[]`, `meme`, `mascot`, `lineup.ch
 `{ "char": "bima", "expr": "kaget", "pose": "panik", "item": "hp", "fx": ["keringat"], "flip": false, "shot": "bust", "x": 50, "scale": 1 }`
 - **char** (pemeran): `rina` (cewek rambut panjang, kaos oranye) · `bima` (cowok, hoodie hijau) · `sari` (cewek berhijab, kemeja, rok) · `ayu` (cewek bob, seragam pelaut) · `dodi` (bapak-bapak, jas, kacamata, kumis) · `koko` (maskot koin emas)
 - **Calon maskot brand (super-chibi gemes)**: `zuzu` (kucing pembawa rezeki, kalung koin Z) · `cimo` (celengan ayam, motif bunga) · `zona` (Zona-chan, anak hoodie telinga kucing, ahoge Z). Bisa recolor via `cast` (mis. `{"base":"kucing","patch":"#888","eyes":"#39f"}`; kunci warna: skin body paw patch patch2 comb eyes accent gold hairColor).
+- **Calon maskot dewasa-gemes (proporsi lebih tinggi, baju stylish)**: `oren` (kucing oren, jaket navy, kaos Z) · `raja` (harimau sumatra, jaket hijau). Recolor via `cast` `{"base":"oren", ...}`; kunci warna: fur stripe muzzle ear eyes jacket tee logo pants shoe sole; `acc:["kacamata"]`, `lanyard:true`.
 - **expr**: netral senang tertawa kaget sedih nangis marah bingung mikir malu bangga panik berbinar lelah datar (efek otomatis: kaget→!, marah→urat, bingung→?, panik→keringat, berbinar→kilau, lelah→suram)
-- **pose**: diri tunjuk sorak pikir panik lambai jelasin pegang silang tepokjidat
+- **pose**: diri tunjuk sorak pikir panik lambai jelasin pegang silang tepokjidat saku jempol (`saku`/`jempol` paling pas untuk `oren`/`raja`)
 - **item** (hanya pose `pegang`): koin hp uang dompet buku · atau nama ikon/emoji
 - **fx** tambahan: keringat marah tanya seru kilau love suram zzz ide uang
 - **shot** (framing): `full` (seluruh badan) · `bust` (default komik, dada ke atas) · `close` (wajah) · **x** = posisi horizontal % · **flip** = cermin

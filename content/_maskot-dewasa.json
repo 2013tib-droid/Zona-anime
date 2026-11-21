@@ -1,0 +1,16 @@
+{
+  "title": "Maskot dewasa tapi gemes",
+  "theme": "sosial",
+  "format": "feed",
+  "series": "Konsep Maskot",
+  "scenes": [
+    { "type": "lineup", "title": "2 calon maskot *baru*", "chars": [
+      { "char": "oren", "expr": "senang", "pose": "jelasin", "label": "D. Oren", "desc": "Kucing oren santai tapi cerdas" },
+      { "char": "raja", "expr": "bangga", "pose": "saku", "label": "E. Raja", "desc": "Harimau sumatra, tegas & berani" } ] },
+    { "type": "lineup", "title": "D. Oren", "chars": [
+      { "char": "oren", "expr": "bangga", "pose": "saku", "label": "santai" }, { "char": "oren", "expr": "senang", "pose": "jempol", "label": "jempol" }, { "char": "oren", "expr": "kaget", "pose": "panik", "label": "kaget" } ] },
+    { "type": "lineup", "title": "E. Raja", "chars": [
+      { "char": "raja", "expr": "netral", "pose": "silang", "label": "serius" }, { "char": "raja", "expr": "tertawa", "pose": "tunjuk", "label": "semangat" }, { "char": "raja", "expr": "mikir", "pose": "pikir", "label": "mikir" } ] },
+    { "type": "meme", "char": "oren", "expr": "datar", "pose": "pegang", "item": "dompet", "top": "Akhir bulan", "bottom": "Dompet: *kosong*" }
+  ]
+}
