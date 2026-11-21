@@ -1,0 +1,23 @@
+{
+  "title": "Inflasi: pencuri diam-diam",
+  "theme": "finansial",
+  "format": "reel",
+  "series": "Edukasi Finansial",
+  "handle": "@zona.anime",
+  "caption": "Uangmu nggak hilang, tapi nilainya pelan-pelan dicuri inflasi 🫣\n\nIlustrasi: inflasi 3%/tahun. Angka sebenarnya tiap tahun berbeda — cek data BPS.\n\nSimpan & bagikan ke temanmu yang masih nyimpen uang di bawah kasur!\n\n#edukasifinansial #inflasi #literasikeuangan #keuangan",
+  "scenes": [
+    { "type": "title", "kicker": "Tahukah kamu?", "icon": "money", "text": "Uang *Rp100 ribu* kamu\nnilainya turun tiap tahun" },
+    { "type": "title", "size": "m", "text": "Namanya *inflasi*: harga barang naik pelan-pelan, jadi uang yang sama dapat barang lebih sedikit." },
+    { "type": "line", "title": "Daya beli Rp100 ribu\nkalau inflasi *3%/tahun*", "format": "rupiah", "points": [
+      { "x": "Th 0", "y": 100000 }, { "x": "Th 2", "y": 94260 }, { "x": "Th 4", "y": 88849 },
+      { "x": "Th 6", "y": 83748 }, { "x": "Th 8", "y": 78941 }, { "x": "Th 10", "y": 74409 } ],
+      "tone": "bad", "note": "Ilustrasi: asumsi inflasi tetap 3% per tahun" },
+    { "type": "stat", "from": 100000, "value": 74409, "format": "rupiah", "label": "Nilai Rp100 ribu setelah *10 tahun*", "sub": "Hilang ±25% tanpa kamu sadari", "trend": "down", "tone": "bad", "note": "Ilustrasi: asumsi inflasi tetap 3% per tahun" },
+    { "type": "mythfact", "myth": "Uang aman kalau disimpan di rumah", "fact": "Aman dari maling, tapi *nggak aman* dari inflasi" },
+    { "type": "list", "title": "Cara melawan inflasi", "style": "check", "items": [
+      { "text": "Siapkan dana darurat dulu", "sub": "3–6× pengeluaran bulanan" },
+      { "text": "Simpan di instrumen yang imbal hasilnya *≥ inflasi*" },
+      { "text": "Pelajari dulu risikonya sebelum investasi" } ] },
+    { "type": "cta", "text": "Simpan biar *nggak lupa*!", "sub": "Bukan ajakan beli produk tertentu ya 🙏" }
+  ]
+}

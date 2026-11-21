@@ -1,0 +1,23 @@
+{
+  "title": "Aturan 50/30/20",
+  "theme": "ekonomi",
+  "format": "reel",
+  "series": "Atur Gaji",
+  "handle": "@zona.anime",
+  "caption": "Gaji numpang lewat? Coba aturan 50/30/20 💸\n\nAngka di video hanya contoh, sesuaikan dengan kondisimu.\n\n#aturkeuangan #503020 #gajian #edukasifinansial",
+  "scenes": [
+    { "type": "chat", "names": { "a": "Teman", "b": "Kamu" }, "messages": [
+      { "from": "a", "text": "Baru tanggal 15 kok saldo udah tipis ya 😭" },
+      { "from": "b", "text": "Udah coba aturan *50/30/20*?" },
+      { "from": "a", "text": "Apaan tuh?" } ] },
+    { "type": "title", "kicker": "Atur Gaji", "icon": "wallet", "text": "Bagi gajimu jadi\n*3 pos* sederhana" },
+    { "type": "donut", "title": "Aturan 50/30/20", "center": "Gaji", "items": [
+      { "label": "Kebutuhan", "value": 50 }, { "label": "Keinginan", "value": 30 }, { "label": "Tabungan & investasi", "value": 20 } ] },
+    { "type": "receipt", "title": "Contoh: gaji *Rp5 juta*", "rows": [
+      { "label": "Kebutuhan (50%)", "value": 2500000 }, { "label": "Keinginan (30%)", "value": 1500000 }, { "label": "Tabungan (20%)", "value": 1000000 } ],
+      "total": { "label": "Total gaji" } },
+    { "type": "compare", "title": "Bedanya apa?", "left": { "title": "Kebutuhan", "icon": "house", "tone": "accent", "items": ["Sewa / cicilan", "Makan", "Transport"] },
+      "right": { "title": "Keinginan", "icon": "cart", "tone": "accent", "items": ["Nongkrong", "Langganan streaming", "Belanja online"] }, "vs": "≠" },
+    { "type": "cta", "text": "Kamu tim *50/30/20* atau punya cara lain?", "actions": ["comment", "save", "share"] }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Katalog semua komponen",
+  "theme": "netral",
+  "format": "feed",
+  "series": "Katalog",
+  "handle": "@zona.anime",
+  "scenes": [
+    { "type": "title", "kicker": "title", "icon": "bulb", "text": "Judul besar dengan *sorotan* kata", "sub": "Subjudul opsional di bawahnya" },
+    { "type": "stat", "kicker": "stat", "value": 74409, "format": "rupiah", "label": "Angka menghitung naik", "sub": "Bisa pakai format rupiah, percent, compact", "trend": "down", "tone": "bad" },
+    { "type": "bars", "title": "bars (horizontal)", "suffix": "%", "items": [
+      { "label": "Kategori A", "value": 42 }, { "label": "Kategori B", "value": 28, "hl": true }, { "label": "Kategori C", "value": 18 }, { "label": "Kategori D", "value": 12 } ], "note": "Data contoh" },
+    { "type": "bars", "title": "bars (vertical)", "vertical": true, "format": "rupiah-compact", "items": [
+      { "label": "2021", "value": 1000000 }, { "label": "2022", "value": 1400000 }, { "label": "2023", "value": 2100000 }, { "label": "2024", "value": 3000000, "hl": true } ], "note": "Data contoh" },
+    { "type": "line", "title": "line", "format": "rupiah-compact", "points": [
+      { "x": "Th 0", "y": 10000000 }, { "x": "Th 5", "y": 14693281 }, { "x": "Th 10", "y": 21589250 }, { "x": "Th 15", "y": 31721691 }, { "x": "Th 20", "y": 46609571 } ],
+      "sub": "Rp10 jt tumbuh 8%/tahun", "note": "Ilustrasi hitungan bunga majemuk 8%/tahun" },
+    { "type": "compare", "title": "compare", "left": { "title": "Opsi A", "icon": "x", "value": "Rp74 rb", "items": ["Poin kelemahan", "Poin kedua"] }, "right": { "title": "Opsi B", "icon": "check", "value": "Rp134 rb", "items": ["Poin kelebihan", "Poin kedua"] } },
+    { "type": "list", "title": "list", "style": "number", "items": ["Poin pertama", { "text": "Poin kedua", "sub": "dengan keterangan kecil" }, "Poin *ketiga*"] },
+    { "type": "list", "title": "list style check", "style": "check", "items": ["Punya dana darurat", "Bayar utang konsumtif", "Mulai investasi rutin"] },
+    { "type": "quote", "text": "Kutipan inspiratif yang muncul *kata demi kata* dengan rapi.", "by": "Nama Tokoh", "role": "Jabatan / keterangan" },
+    { "type": "donut", "title": "donut", "center": "50/30/20", "items": [ { "label": "Kebutuhan", "value": 50 }, { "label": "Keinginan", "value": 30 }, { "label": "Tabungan", "value": 20 } ] },
+    { "type": "timeline", "title": "timeline", "items": [ { "label": "Langkah 1", "text": "Catat pengeluaran" }, { "label": "Langkah 2", "text": "Buat anggaran" }, { "label": "Langkah 3", "text": "Otomatiskan tabungan" } ] },
+    { "type": "mythfact", "myth": "Investasi harus nunggu kaya dulu", "fact": "Bisa mulai dari *Rp10 ribu* lewat reksa dana" },
+    { "type": "people", "total": 10, "highlight": 3, "text": "Contoh isotype: *3 dari 10* disorot", "note": "Data contoh" },
+    { "type": "receipt", "title": "receipt", "rows": [ { "label": "Gaji", "value": 5000000 }, { "label": "Kebutuhan", "value": 2500000, "op": "-" }, { "label": "Keinginan", "value": 1500000, "op": "-" } ], "total": { "label": "Sisa ditabung" } },
+    { "type": "chat", "title": "chat", "names": { "a": "Teman", "b": "Kamu" }, "messages": [ { "from": "a", "text": "Gajian kemarin udah habis aja 😭" }, { "from": "b", "text": "Coba aturan *50/30/20* deh" }, { "from": "a", "text": "Apa tuh?" } ] },
+    { "type": "cta", "text": "cta: Simpan biar *nggak lupa*!", "actions": ["save", "share", "follow"] }
+  ]
+}

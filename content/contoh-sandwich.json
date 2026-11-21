@@ -1,0 +1,23 @@
+{
+  "title": "Sandwich generation",
+  "theme": "sosial",
+  "format": "feed",
+  "series": "Sosial",
+  "handle": "@zona.anime",
+  "caption": "Kamu salah satunya? 🥪\n\nSandwich generation = generasi yang menanggung orang tua dan anak sekaligus.\n\nBagikan ke teman yang lagi berjuang 🤍\n\n#sandwichgeneration #keluarga #keuangankeluarga",
+  "scenes": [
+    { "type": "title", "kicker": "Isu Sosial", "icon": "family", "text": "Apa itu\n*sandwich generation*?" },
+    { "type": "people", "total": 3, "highlight": 1, "icon": "person", "label": "1 orang, 3 generasi", "text": "Menanggung *orang tua*, *diri sendiri*, dan *anak* sekaligus" },
+    { "type": "list", "title": "Tanda kamu mengalaminya", "style": "dot", "items": [
+      "Gaji langsung terbagi ke orang tua & keluarga",
+      "Susah menabung untuk diri sendiri",
+      "Merasa bersalah kalau bilang *tidak*" ] },
+    { "type": "timeline", "title": "Langkah memutus rantai", "items": [
+      { "label": "1. Bicara", "text": "Diskusikan kondisi keuangan secara terbuka" },
+      { "label": "2. Batasi", "text": "Tentukan porsi bantuan yang realistis" },
+      { "label": "3. Lindungi", "text": "Siapkan dana darurat & asuransi kesehatan" },
+      { "label": "4. Pensiun", "text": "Mulai siapkan dana pensiunmu sendiri" } ] },
+    { "type": "quote", "text": "Menolong keluarga itu mulia, tapi pastikan *kamu juga tidak tenggelam*." },
+    { "type": "cta", "text": "Bagikan ke yang *lagi berjuang* 🤍", "actions": ["share", "save", "follow"] }
+  ]
+}
