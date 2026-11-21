@@ -113,3 +113,27 @@ body.render #wrap { margin: 0; }
 #ctrl .time { font-variant-numeric: tabular-nums; min-width: 92px; }
 .err { position: absolute; inset: 40px; z-index: 99; background: #2b0f12; color: #ffb4b4; border: 3px solid #ff6b6b; border-radius: 24px; padding: 40px; font: 30px/1.5 monospace; white-space: pre-wrap; }
 .me em { color: inherit; text-decoration: underline 5px; text-underline-offset: 8px; background: none; }
+
+/* ---------- komik & karakter ---------- */
+@font-face { font-family: Comic; src: url(../assets/fonts/comicneue-700.woff2) format('woff2'); font-weight: 700; }
+@font-face { font-family: Bangers; src: url(../assets/fonts/bangers-400.woff2) format('woff2'); }
+.panel { position: absolute; border: 6px solid #2B2233; border-radius: 10px; overflow: hidden; background: #fff; color: #2B2233; transform-origin: center; }
+.comic-title { height: 90px; display: flex; align-items: center; font-size: 56px; font-weight: 800; letter-spacing: -.03em; }
+.bubble {
+  position: absolute; z-index: 5; width: max-content; background: #fff; color: #2B2233; border: 5px solid #2B2233;
+  border-radius: 44px; padding: 18px 28px; font: 700 34px/1.22 Comic, Jakarta, sans-serif; text-align: center; letter-spacing: 0;
+}
+.bubble em { color: #D62E4C; background: none; }
+.b-think { border-radius: 50%; padding: 30px 42px; }
+.b-bisik { border-style: dashed; font-size: 28px; }
+.b-shout { background: transparent; border: none; font: 48px/1.05 Bangers, Impact, sans-serif; letter-spacing: .03em; text-transform: uppercase; padding: 14px 20px; }
+.b-narr { border-radius: 6px; border-width: 4px; background: #FFF3B0; font-size: 28px; text-align: left; padding: 12px 20px; }
+.sfx { position: absolute; z-index: 6; font-family: Bangers, Impact, sans-serif; -webkit-text-stroke: 9px #2B2233; paint-order: stroke fill; letter-spacing: .04em; white-space: nowrap; line-height: 1; }
+.meme-text { position: absolute; left: 0; right: 0; z-index: 6; text-align: center; padding: 0 36px; font: 104px/1.02 Bangers, Impact, sans-serif; color: #fff; -webkit-text-stroke: 13px #111; paint-order: stroke fill; text-transform: uppercase; letter-spacing: .02em; }
+.meme-text em { color: #FFE066; background: none; }
+.chara { display: block; }
+.corner-chara { position: absolute; z-index: 3; }
+.corner-say { position: absolute; z-index: 4; }
+.corner-say::after { content: ''; position: absolute; bottom: 26px; border: 16px solid transparent; }
+.corner-say.tail-r::after { right: -36px; border-left: 24px solid #2B2233; }
+.corner-say.tail-l::after { left: -36px; border-right: 24px solid #2B2233; }

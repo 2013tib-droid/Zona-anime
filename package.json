@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Bank animasi untuk konten edukasi finansial, ekonomi & sosial (Instagram & Threads).",
+  "description": "Bank animasi & ilustrasi chibi/anime untuk konten edukasi finansial, ekonomi & sosial (Instagram & Threads).",
   "scripts": {
+    "gambar": "node tools/render.js --carousel --no-video",
+    "carousel": "node tools/render.js --carousel --no-video",
     "preview": "node tools/server.js",
     "render": "node tools/render.js",
-    "carousel": "node tools/render.js --carousel --no-video",
     "check": "node tools/render.js --check",
     "baru": "node tools/new.js",
-    "katalog": "node tools/render.js content/_katalog.json --carousel --no-video"
+    "katalog": "node tools/render.js content/_katalog.json content/_karakter.json --carousel --no-video"
   },
   "dependencies": {
     "playwright": "^1.48.0"

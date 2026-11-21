@@ -4,6 +4,8 @@
 import { registry, h, clamp, prog, ease } from './core.js';
 import { THEMES } from './themes.js';
 import { icon } from './icons.js';
+import { drawChara } from './chara.js';
+import { bubble } from './comic.js';
 import '../bank/index.js';
 
 const q = new URLSearchParams(location.search);
@@ -11,6 +13,8 @@ const MODE = q.get('mode') || 'video';
 const HEADLESS = q.has('headless');
 const EXIT = 0.4; // detik transisi keluar antar-scene
 const HEIGHTS = { reel: 1920, feed: 1350, square: 1080 };
+// padding untuk scene bergambar penuh (komik/meme/maskot) — lebih lebar dari scene teks
+const FULL = { reel: [290, 400, 56], feed: [172, 100, 48], square: [150, 84, 44] };
 const stage = document.getElementById('stage');
 
 main().catch(err => {
@@ -28,7 +32,7 @@ async function main() {
   let data;
   try { data = JSON.parse(await res.text()); } catch (e) { throw new Error(`JSON tidak valid di ${src}:\n${e.message}`); }
 
-  const format = q.get('f') || data.format || 'reel';
+  const format = q.get('f') || data.format || 'feed';
   if (!HEIGHTS[format]) throw new Error(`format "${format}" tidak dikenal. Pilihan: ${Object.keys(HEIGHTS).join(', ')}`);
   const themeName = q.get('theme') || data.theme || 'finansial';
   const theme = THEMES[themeName];
@@ -62,14 +66,34 @@ async function main() {
   let t0 = 0;
   list.forEach((sc, i) => {
     const def = registry[sc.type];
-    const built = def.build(sc, { ...ctx, index: i });
+    const [fpt, fpb, fpx] = FULL[format];
+    const box = { w: 1080 - 2 * fpx, h: H - fpt - fpb };
+    const built = def.build(sc, { ...ctx, index: i, box });
     const dur = sc.dur ?? Math.round(((def.dur ? def.dur(sc) : 3) + EXIT) * 10) / 10;
     const inner = h('div', { class: 'inner' }, built.el);
     const note = sc.source ? 'Sumber: ' + sc.source : sc.note;
     const srcEl = note && h('div', { class: 'source' }, note);
     const el = h('div', { class: 'scene' }, inner, srcEl);
+    if (def.full) { el.style.padding = `${fpt}px ${fpx}px ${fpb}px`; el.dataset.full = '1'; }
+    let cornerEls = [];
+    if (sc.chara) { // maskot kecil di pojok untuk scene apa pun
+      const cc = typeof sc.chara === 'string' ? { char: sc.chara } : sc.chara;
+      const ch = cc.size || (format === 'square' ? 320 : 400), right = cc.side !== 'left';
+      const ce = drawChara({ pose: 'jelasin', ...cc, flip: cc.flip ?? !right }, data.cast);
+      Object.assign(ce.style, { width: ch * 480 / 680 + 'px', height: ch + 'px', bottom: `calc(var(--pb) - ${format === 'reel' ? 60 : 50}px)`, [right ? 'right' : 'left']: '30px' });
+      ce.classList.add('corner-chara');
+      el.style.paddingBottom = `calc(var(--pb) + ${ch - 50}px)`;
+      cornerEls.push(ce);
+      if (cc.say) {
+        const b = bubble({ text: cc.say });
+        b.classList.add('corner-say', right ? 'tail-r' : 'tail-l');
+        Object.assign(b.style, { maxWidth: '560px', bottom: `calc(var(--pb) + ${ch * 0.42 - 110}px)`, [right ? 'right' : 'left']: ch * 0.62 + 40 + 'px' });
+        cornerEls.push(b);
+      }
+      el.append(...cornerEls);
+    }
     stage.append(el);
-    scenes.push({ el, inner, srcEl, dur, start: t0, update: built.update, pose: built.pose ?? dur - EXIT - 0.05, type: sc.type });
+    scenes.push({ el, inner, srcEl, cornerEls, full: def.full, dur, start: t0, update: built.update, pose: built.pose ?? dur - EXIT - 0.05, type: sc.type });
     t0 += dur;
   });
   const total = t0;
@@ -90,6 +114,7 @@ async function main() {
 
   // --- auto-fit: kecilkan scene yang kepanjangan ---
   for (const sc of scenes) {
+    if (sc.full) continue;
     const cs = getComputedStyle(sc.el);
     const availH = sc.el.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
     const availW = sc.el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
@@ -112,12 +137,14 @@ async function main() {
       const e = last || MODE === 'carousel' ? 0 : prog(t, sc.dur - EXIT, EXIT, ease.inOutCubic);
       sc.el.style.opacity = 1 - e;
       sc.el.style.transform = e ? `translateY(${-50 * e}px) scale(${1 - 0.04 * e})` : '';
+      sc.cornerEls.forEach((c, k) => { c.style.opacity = MODE === 'carousel' ? 1 : prog(t, 0.4 + k * 0.5, 0.5); });
       if (sc.srcEl) sc.srcEl.style.opacity = MODE === 'carousel' ? 1 : prog(t, 0.6, 0.5) * 0.85;
     });
     b1.style.transform = `translate(${-300 + Math.sin(T * 0.35) * 160}px, ${-260 + Math.cos(T * 0.27) * 140}px)`;
     b2.style.transform = `translate(${380 + Math.cos(T * 0.3) * 160}px, ${H - 700 + Math.sin(T * 0.22) * 160}px)`;
     page.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(scenes.length).padStart(2, '0');
-    swipe.style.display = current === 0 ? '' : 'none';
+    swipe.style.display = current === 0 && scenes.length > 1 ? '' : 'none';
+    page.style.display = scenes.length > 1 ? '' : 'none';
     return current;
   }
 

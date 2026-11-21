@@ -1,0 +1,31 @@
+{
+  "title": "Katalog karakter & komik",
+  "theme": "sosial",
+  "format": "feed",
+  "series": "Katalog",
+  "scenes": [
+    { "type": "lineup", "title": "Pemeran", "chars": [
+      { "char": "rina", "label": "rina" }, { "char": "bima", "label": "bima" }, { "char": "sari", "label": "sari" } ] },
+    { "type": "lineup", "chars": [
+      { "char": "ayu", "label": "ayu" }, { "char": "dodi", "label": "dodi" }, { "char": "koko", "label": "koko" } ] },
+    { "type": "lineup", "title": "Ekspresi 1", "chars": [
+      { "char": "rina", "expr": "netral", "label": "netral", "shot": "bust" }, { "char": "rina", "expr": "senang", "label": "senang", "shot": "bust" }, { "char": "rina", "expr": "tertawa", "label": "tertawa", "shot": "bust" }, { "char": "rina", "expr": "kaget", "label": "kaget", "shot": "bust" }, { "char": "rina", "expr": "sedih", "label": "sedih", "shot": "bust" } ] },
+    { "type": "lineup", "title": "Ekspresi 2", "chars": [
+      { "char": "bima", "expr": "nangis", "label": "nangis", "shot": "bust" }, { "char": "bima", "expr": "marah", "label": "marah", "shot": "bust" }, { "char": "bima", "expr": "bingung", "label": "bingung", "shot": "bust" }, { "char": "bima", "expr": "mikir", "label": "mikir", "shot": "bust" }, { "char": "bima", "expr": "malu", "label": "malu", "shot": "bust" } ] },
+    { "type": "lineup", "title": "Ekspresi 3", "chars": [
+      { "char": "sari", "expr": "bangga", "label": "bangga", "shot": "bust" }, { "char": "sari", "expr": "panik", "label": "panik", "shot": "bust" }, { "char": "sari", "expr": "berbinar", "label": "berbinar", "shot": "bust" }, { "char": "sari", "expr": "lelah", "label": "lelah", "shot": "bust" }, { "char": "sari", "expr": "datar", "label": "datar", "shot": "bust" } ] },
+    { "type": "lineup", "title": "Pose 1", "chars": [
+      { "char": "bima", "pose": "diri", "label": "diri" }, { "char": "bima", "pose": "tunjuk", "label": "tunjuk" }, { "char": "bima", "pose": "sorak", "expr": "senang", "label": "sorak" }, { "char": "bima", "pose": "pikir", "expr": "mikir", "label": "pikir" }, { "char": "bima", "pose": "panik", "expr": "panik", "label": "panik" } ] },
+    { "type": "lineup", "title": "Pose 2", "chars": [
+      { "char": "rina", "pose": "lambai", "expr": "senang", "label": "lambai" }, { "char": "rina", "pose": "jelasin", "label": "jelasin" }, { "char": "rina", "pose": "pegang", "item": "uang", "expr": "berbinar", "label": "pegang" }, { "char": "rina", "pose": "silang", "expr": "marah", "label": "silang" }, { "char": "rina", "pose": "tepokjidat", "expr": "lelah", "label": "tepokjidat" } ] },
+    { "type": "comic", "title": "Gajian, terus...", "panels": [
+      { "bg": "kilau", "chars": [{ "char": "bima", "expr": "berbinar", "pose": "sorak" }], "bubbles": [{ "text": "GAJIAN *CAIR*!!", "type": "shout" }], "narr": "Tanggal 25" },
+      { "bg": "uang", "chars": [{ "char": "bima", "expr": "senang", "pose": "pegang", "item": "hp" }], "bubbles": [{ "text": "Checkout dulu ah, lagi diskon~" }] },
+      { "bg": "suram", "chars": [{ "char": "bima", "expr": "kaget", "pose": "panik" }], "sfx": [{ "text": "DEG!", "x": 78, "y": 22 }], "narr": "Tanggal 5" },
+      { "bg": "ruang", "chars": [{ "char": "bima", "expr": "nangis" }, { "char": "sari", "expr": "datar", "pose": "silang" }], "bubbles": [{ "who": 1, "text": "Udah dibilang bikin *anggaran*..." }, { "who": 0, "text": "Iya iya 😭", "type": "think" }] }
+    ] },
+    { "type": "meme", "char": "rina", "expr": "panik", "pose": "panik", "top": "Saldo akhir bulan:", "bottom": "Rp*12.500*" },
+    { "type": "mascot", "char": "koko", "pose": "jelasin", "expr": "senang", "kicker": "Tips", "title": "Dana darurat itu *wajib*", "items": ["Minimal 3× pengeluaran bulanan", "Simpan terpisah dari rekening harian"], "say": "Mulai dari *Rp10 ribu* juga boleh!" },
+    { "type": "stat", "value": 3, "suffix": "×", "label": "pengeluaran bulanan untuk dana darurat", "chara": { "char": "dodi", "expr": "bangga", "say": "Ini minimal, ya!" }, "note": "Pedoman umum perencanaan keuangan" }
+  ]
+}

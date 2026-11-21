@@ -1,0 +1,29 @@
+{
+  "title": "Gaji numpang lewat",
+  "theme": "sosial",
+  "format": "feed",
+  "series": "Komik Finansial",
+  "handle": "@zona.anime",
+  "caption": "Siapa yang gajinya cuma numpang lewat? 🙋‍♂️\n\nGeser sampai habis buat tips dari Kak Sari & Koko 💸\n\nTag teman yang tiap tanggal 5 udah panik 😆\n\n#komikfinansial #gajian #aturkeuangan #edukasifinansial",
+  "scenes": [
+    { "type": "meme", "char": "bima", "expr": "panik", "pose": "panik", "bg": "fokus", "top": "Tanggal 25: gajian", "bottom": "Tanggal 5: *Rp0*" },
+    { "type": "comic", "title": "Gaji numpang lewat", "panels": [
+      { "bg": "kilau", "narr": "Tanggal 25", "chars": [{ "char": "bima", "expr": "berbinar", "pose": "sorak" }], "bubbles": [{ "text": "Gajian *cair*!!", "type": "shout" }] },
+      { "bg": "uang", "chars": [{ "char": "bima", "expr": "senang", "pose": "pegang", "item": "hp" }], "bubbles": [{ "text": "Checkout dulu ah, lagi diskon~" }] },
+      { "bg": "suram", "narr": "Tanggal 5", "chars": [{ "char": "bima", "expr": "kaget", "pose": "panik" }], "sfx": [{ "text": "DEG!", "x": 76, "y": 24 }] },
+      { "bg": "ruang", "chars": [{ "char": "bima", "expr": "nangis" }, { "char": "sari", "expr": "datar", "pose": "silang" }], "bubbles": [{ "who": 1, "text": "Lagi-lagi?" }, { "who": 0, "text": "Iya... 😭", "type": "think" }] }
+    ] },
+    { "type": "comic", "layout": "2", "panels": [
+      { "bg": "ruang", "chars": [{ "char": "sari", "expr": "senang", "pose": "jelasin" }, { "char": "bima", "expr": "bingung" }],
+        "bubbles": [{ "who": 0, "text": "Coba bagi gajimu jadi *3 pos* pas gajian." }, { "who": 1, "text": "3 pos?" }] },
+      { "bg": "halftone", "chars": [{ "char": "sari", "expr": "bangga", "pose": "tunjuk" }, { "char": "bima", "expr": "kaget" }],
+        "bubbles": [{ "who": 0, "text": "*Kebutuhan*, *keinginan*, dan *tabungan*. Tabungan duluan!" }], "sfx": [{ "text": "TING!", "x": 85, "y": 70, "color": "#FFD34D" }] }
+    ] },
+    { "type": "donut", "title": "Contoh pembagian 50/30/20", "center": "Gaji", "items": [
+      { "label": "Kebutuhan", "value": 50 }, { "label": "Keinginan", "value": 30 }, { "label": "Tabungan", "value": 20 } ],
+      "chara": { "char": "koko", "expr": "senang", "say": "Sesuaikan sama kondisimu ya!" } },
+    { "type": "mascot", "char": "koko", "pose": "jelasin", "expr": "berbinar", "kicker": "Tips Koko", "title": "Biar gaji *nggak* numpang lewat",
+      "items": ["Pindahkan tabungan di hari gajian", "Tunda checkout 24 jam", "Catat pengeluaran seminggu"], "say": "Mulai dari *satu* kebiasaan dulu!" },
+    { "type": "cta", "text": "Tag teman yang *tanggal 5* udah panik 😆", "actions": ["share", "save", "follow"], "chara": { "char": "bima", "expr": "tertawa", "pose": "lambai", "side": "left" } }
+  ]
+}

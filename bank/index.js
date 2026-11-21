@@ -14,3 +14,8 @@ import './receipt.js';
 import './chat.js';
 import './image.js';
 import './cta.js';
+// --- bergambar (karakter anime/chibi) ---
+import './comic.js';
+import './meme.js';
+import './mascot.js';
+import './lineup.js';
